@@ -83,16 +83,76 @@ _Time estimate: 30 minutes (10 mins interactive)._
 ```
 ./BCacheSim/run_py.sh py -B -m BCacheSim.cachesim.simulate_ap --config runs/example/rejectx/config.json
 ```
+OPT PER DAY
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir ./tmp/optday0 --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --train-split-secs-start 0 --train-split-secs-end 86400 --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir ./tmp/optday1 --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --train-split-secs-start 86400 --train-split-secs-end 172800 --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir ./tmp/optday2 --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --train-split-secs-start 172800 --train-split-secs-end 259200 --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
+
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir ./tmp/optday3 --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --train-split-secs-start  259200  --train-split-secs-end 345600 --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
+
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir ./tmp/optday4 --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --train-split-secs-start  345600   --train-split-secs-end 432000 --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
+
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir ./tmp/optday5 --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --train-split-secs-start  432000   --train-split-secs-end 518400 --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir ./tmp/optday6 --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --train-split-secs-start 518400    --train-split-secs-end 604800
+--ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
 
 2. Manually train Baleen's ML models (25 secs) and run the simulator with Baleen (~30 mins).
 
 ```
 ./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir runs/example/baleen --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --train-models admit prefetch --train-split-secs-start 0 --train-split-secs-end 86400 --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
-./BCacheSim/run_py.sh py -B -m BCacheSim.cachesim.simulate_ap --config runs/example/baleen/prefetch_ml-on-partial-hit/config.json
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy P
+olicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir runs/example/baleen --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --train-models admit prefetch --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
+
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.cachesim.simulate_ap --config runs/example/baleen/prefetch_opt/config.json
 ```
+
+## OPT
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp exp_reproduce_ --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0.0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.47461 --output-base-dir ./tmp/exp_reproduce_20230403_19traces --eviction-age 4752.887 --train-target-wr 35.599 --rl-init-kwargs filter_=prefetch --train-models admit prefetch 	
+
+# RUN OPT PER DAY FULL
+./BCacheSim/run_py.sh py -B -m BCacheSim.cachesim.simulate_ap --trace data/tectonic/201910/Region1/full_0_0.1.trace --offline-ap --ap opt --ap-threshold 5 --size_gb 366.475 -o ./runs/ap_opt_per_day/threshold/5 --prefetch-when at_start --prefetch-range acctime-episode --batch-size 16 --log-interval 600  --ep-analysis tmp/exp_reproduce_20230403_19traces/exp_reproduce_/201910_Region1_0_0.1/offline_analysis_ea_4752.89.csv --offline-ap-decisions decisions_opt_per_day.pkl.bz --eviction-policy LRU
+
+## OPT REGULER FULL POLL
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp example --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0 --trace-group 201910 --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.475 --output-base-dir ./tmp/optfull --eviction-age 5892.856 --rl-init-kwargs filter_=prefetch --train-target-wr 35.599 --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk
+
+./BCacheSim/run_py.sh py -B -m BCacheSim.cachesim.simulate_ap --trace data/tectonic/201910/Region1/full_0_0.1.trace --offline-ap --ap opt --ap-threshold 15 --size_gb 366.475 -o ./runs/ap_opt_full/threshold/15 --prefetch-when at_start --prefetch-range acctime-episode --batch-size 16 --log-interval 600  --ep-analysis tmp/exp_reproduce_20230403_19traces/exp_reproduce_/201910_Region1_0_0.1/offline_analysis_ea_4752.89.csv --offline-ap-decisions /home/cc/Baleen-FAST24/tmp/optfull/example/201910_Region1_0_0.1/decisions_utility_service_time_size_fixed_ea_5892.86.pkl.bz --eviction-policy LRU
 
 3. Use [notebooks/example/example.ipynb](notebooks/example/example.ipynb) to view and plot results.
 
+
+## REGION 1
+
+# CoinFlip, Region1, 0.0
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp exp_reproduce_ --policy PolicyUtilityHits --region Region1 --sample-ratio 0.1 --sample-start 0.0 --trace-group 201910  --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.47461 --output-base-dir ./tmp/exp_reproduce_20230412_19traces_1p  --eviction-age 7182.692 --train-target-wr 35.599 --rl-init-kwargs filter_=noprefetch --train-models admit prefetch --train-split-secs-start 0 --train-split-secs-end 86400 
+
+## COINFLIP
+./BCacheSim/run_py.sh py -B -m BCacheSim.cachesim.simulate_ap --trace data/tectonic/201910/Region1/full_0_0.1.trace --coinflip-ap --ap coinflip --ap-probability 0.077218 --size_gb 366.475 -o ../runs/exp_reproduce_spring23/20230412_19traces_1p/201910_Region1_0_1_366.475GB_WR35.599MBS/ap_coinflip/policy_hits/prefetch_never_episode/i_2_ea_7182.69   --prefetch-when never --prefetch-range episode  --log-interval 600  --ep-analysis ../runs/exp_reproduce_spring23/20230412_19traces_1p/201910_Region1_0_1/offline_analysis_ea_7182.69.csv --offline-ap-decisions ../tmp/20230412_19traces_1p/201910_Region1_0_1/decisions_utility_hits_fixed_ea_7182.69.pkl.bz --eviction-policy LRU
+# RejectX, Region1, 0.0
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp exp_reproduce_ --policy PolicyUtilityHits --region Region1 --sample-ratio 0.1 --sample-start 0.0 --trace-group 201910  --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.47461 --output-base-dir ./tmp/exp_reproduce_20230412_19traces_1p  --eviction-age 6529.048 --train-target-wr 35.599 --rl-init-kwargs filter_=noprefetch --train-models admit prefetch --train-split-secs-start 0 --train-split-secs-end 86400 
+
+# rejectx run
+./BCacheSim/run_py.sh py -B -m BCacheSim.cachesim.simulate_ap --trace data/tectonic/201910/Region1/full_0_0.1.trace --rejectx-ap --ap rejectx --ap-probability 0.580327 --size_gb 366.475 -o ../runs/exp_reproduce_spring23/20230412_19traces_1p/201910_Region1_0_1_366.475GB_WR35.599MBS/ap_rejectx/policy_hits/prefetch_never_episode/i_2_ea_6529.05   --prefetch-when never --prefetch-range episode  --log-interval 600  --ep-analysis ../runs/exp_reproduce_spring23/20230412_19traces_1p/201910_Region1_0_1/offline_analysis_ea_6529.05.csv --ap-threshold 1 --offline-ap-decisions ../tmp/20230412_19traces_1p/201910_Region1_0_1/decisions_utility_hits_fixed_ea_6529.05.pkl.bz --eviction-policy LRU
+
+# Baleen (No Prefetch), Region1, 0.0
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp exp_reproduce_ --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0.0 --trace-group 201910  --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.47461 --output-base-dir ../tmp/exp_reproduce_20230412_19traces_1p  --suffix /201910_Region1_0_1/fs_meta+block+chunk/accs_15   --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk  --eviction-age 6119.971 --train-target-wr 35.599 --rl-init-kwargs filter_=noprefetch --train-models admit prefetch --train-split-secs-start 0 --train-split-secs-end 86400 
+
+## RUN LEARNED 
+./BCacheSim/run_py.sh py -B -m BCacheSim.cachesim.simulate_ap --trace data/tectonic/201910/Region1/full_0_0.1.trace --learned-ap --ap mlnew --ap-threshold 0.686769 --size_gb 366.475 -o ../runs/exp_reproduce_spring23/20230412_19traces_1p/201910_Region1_0_1_366.475GB_WR35.599MBS/ap_mlnew/policy_servicetimesize/prefetch_never_episode/i_2_ea_6119.97   --prefetch-when never --prefetch-range episode  --batch-size 16  --log-interval 600  --ep-analysis ../runs/exp_reproduce_spring23/20230412_19traces_1p/201910_Region1_0_1/fs_meta+block+chunk/accs_15/offline_analysis_ea_6119.97.csv --learn-ap-filtercount 6 --learn-ap-granularity both --offline-ap-decisions ./tmp/20230412_19traces_1p/201910_Region1_0_1/fs_meta+block+chunk/accs_15/decisions_utility_service_time_size_fixed_ea_6119.97.pkl.bz --learned-ap-model-path ./tmp/exp_reproduce_/201910_Region1_0_0.1/201910_Region1_0_1/fs_meta+block+chunk/accs_15/ea_6119.97_wr_35.599_admit_threshold_binary.model --ap-feat-subset meta+block+chunk --eviction-policy LRU
+
+# Baleen, Region1, 0.0
+./BCacheSim/run_py.sh py -B -m BCacheSim.episodic_analysis.train --exp exp_reproduce_ --policy PolicyUtilityServiceTimeSize2 --region Region1 --sample-ratio 0.1 --sample-start 0.0 --trace-group 201910  --supplied-ea physical --target-wrs 34 50 100 75 20 10 60 90 30 --target-csizes 366.47461 --output-base-dir ../tmp/exp_reproduce_20230412_19traces_1p  --suffix /201910_Region1_0_1/fs_meta+block+chunk/accs_15   --ap-acc-cutoff 15 --ap-feat-subset meta+block+chunk  --eviction-age 6592.988 --train-target-wr 35.599 --rl-init-kwargs filter_=prefetch --train-models admit prefetch --train-split-secs-start 0 --train-split-secs-end 86400 
+
+# RUN BALEEN
+./BCacheSim/run_py.sh py -B -m BCacheSim.cachesim.simulate_ap --trace data/tectonic/201910/Region1/full_0_0.1.trace --learned-ap --ap mlnew --ap-threshold 0.830268 --size_gb 366.475 -o ../runs/exp_reproduce_spring23/20230412_19traces_1p/201910_Region1_0_1_366.475GB_WR35.599MBS/ap_mlnew/policy_servicetimesize/prefetch_predict_acctime-episode-predict/i_2_ea_6592.99   --prefetch-when predict --prefetch-range acctime-episode-predict  --batch-size 16  --prefetch-when-threshold 0.5  --log-interval 600  --ep-analysis ../runs/exp_reproduce_spring23/20230412_19traces_1p/201910_Region1_0_1/fs_meta+block+chunk/accs_15/offline_analysis_ea_6592.99.csv --learn-ap-filtercount 6 --learn-ap-granularity both --prefetcher-model-path ./tmp/exp_reproduce_/201910_Region1_0_0.1/201910_Region1_0_1/fs_meta+block+chunk/accs_15/ea_6592.99_wr_35.599_prefetch_{k}.model --offline-ap-decisions ../tmp/20230412_19traces_1p/201910_Region1_0_1/fs_meta+block+chunk/accs_15/decisions_utility_service_time_size_fixed_ea_6592.99.pkl.bz --learned-ap-model-path ./tmp/exp_reproduce_/201910_Region1_0_0.1/201910_Region1_0_1/fs_meta+block+chunk/accs_15/ea_6592.99_wr_35.599_admit_threshold_binary.model --ap-feat-subset meta+block+chunk --eviction-policy LRU
 
 ## Detailed Instructions
 
